@@ -1,0 +1,137 @@
+.inner {
+    max-width: 144rem;
+    margin: 0 auto;
+}
+
+
+.w_inner {
+    max-width: 144rem;
+    margin: 0 auto;
+}
+
+.w_inner.r {
+    margin-left: auto;
+}
+
+.w_inner.l {
+    margin-right: auto;
+}
+
+
+.default {
+    padding: 8rem 0;
+}
+
+.default .title {
+    max-width: 141rem;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    /*전체적으로 타이틀 아래 마진 주는 방법*/
+}
+
+.default .title h2 {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.default .title h3 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.default .title p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 16px;
+}
+
+.default_btn {
+    /*디폴트 버튼을 만들어놓고 계속 사용할거다.*/
+    display: inline-flex;
+    align-items: center;
+    padding: 0 24px;
+    /*top 0 right 24 bottom 0 left 24*/
+    height: 40px;
+    background: var(--primary-color);
+    color: var(--white-color);
+
+    border-radius: 3rem;
+    /*모서리 둥글게*/
+    white-space: nowrap;
+    /*글자 한줄로*/
+    font-weight: 500;
+}
+
+
+.flx {
+    display: flex;
+    gap: 3rem;
+}
+
+.flx>* {
+    flex: 1;
+}
+
+
+@media (max-width:768px) {
+    .flx {
+        flex-direction: column;
+    }
+}
+
+
+.lnk_a {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+
+    background: var(--primary-color);
+    color: var(--white-color);
+
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+
+    transform: translate(0, -50%);
+
+}
+
+.lnk_a img {
+    height: 4rem;
+    margin-bottom: 1.6rem;
+}
+
+.lnk_a::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: -1;
+    border-radius: 50%;
+    background: var(--primary-color);
+
+    opacity: 0.25;
+}
+
+.lnk_a:hover::before {
+    animation: circle 0.8s infinite;
+}
+
+@keyframes circle {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2);
+    }
+}

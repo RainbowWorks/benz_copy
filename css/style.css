@@ -1,0 +1,540 @@
+:root {
+    --primary-color: #0078d6;
+    /*root는 저 위에 있다는 뜻, --primary-color 중요한컬러*/
+    --secondary-color: #bbb;
+
+    --body-color: #333333;
+
+    --line-color: #dddddd;
+    --white-color: #ffffff;
+    /*white-color 많이 쓰는 컬러*/
+    --backgroud-color: #f7f7f7;
+}
+
+html {
+    font-size: 62.5%;
+    /*10px??폰트 사이즈 크게 벌어지는걸 예방한다. 6.25%이렇게 쓰면 안되고 10단위로 사용해야한다.*/
+}
+
+body {
+    font-size: 1.6rem;
+    /*10px이 1rem, 1.6rem이 16px이 된다.*/
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25)
+}
+
+#header.on {
+    background: var(--white-color);
+    border-bottom: 1px solid var(--line-color);
+}
+
+#header .hd_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header h1 a {
+    display: flex;
+}
+
+#header h1 a img {
+    height: 4rem;
+}
+
+#header.on h1 a img:nth-child(2) {
+    filter: invert();
+}
+
+#header .gnb>ul {
+    display: flex;
+    gap: 4rem;
+}
+
+#header a {
+    white-space: nowrap;
+}
+
+#header .gnb>ul>li>a {
+    display: block;
+    line-height: 12rem;
+    font-size: 1.8rem;
+    color: var(--white-color);
+
+    transition: line-height 0.4s;
+}
+
+#header.on .gnb>ul>li>a {
+    line-height: 8rem;
+    color: var(--body-color);
+}
+
+#header .gnb>ul>li {
+    position: relative;
+}
+
+#header .gnb>ul>li ul {
+    position: absolute;
+    top: auto;
+    left: 50%;
+
+    padding: 1.6rem 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 0);
+
+    background: var(--white-color);
+    border-radius: 8px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+
+    transition: 0.4s;
+}
+
+#header .gnb>ul>li:hover ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -12px);
+}
+
+#header .gnb>ul>li:focus-within ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -12px);
+}
+
+#header .gnb>ul>li ul a {
+    display: block;
+    line-height: 4rem;
+    padding: 0 4rem;
+    text-align: center;
+}
+
+/* #header .gnb>ul>li ul li~li a {
+    border-top: 1px solid var(--line-color);
+} */
+
+#header .utils {
+    display: flex;
+    gap: 2.4rem;
+}
+
+#header .utils a {
+    position: relative;
+    color: var(--white-color);
+}
+
+#header.on .utils a {
+    color: var(--body-color);
+}
+
+#header .utils a~a::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -13px;
+    width: 2px;
+    height: 2px;
+    background: var(--white-color);
+
+    transform: translate(0, -50%);
+}
+
+#header.on .utils a~a::before {
+    background: var(--body-color);
+}
+
+
+.main_visual {
+    position: relative;
+}
+
+.main_visual .main_visual_slide .itm {
+    border-radius: 0 0 16rem 0;
+    /* overflow: hidden; */
+}
+
+.main_visual .main_visual_slide .itm {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main_visual .main_visual_slide .itm .bg {
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+.main_visual .main_visual_slide .itm01 .bg {
+    background: url(../images/main_visual01.jpg) no-repeat center center/cover;
+}
+
+.main_visual .main_visual_slide .itm02 .bg {
+    background: url(../images/main_visual02.jpg) no-repeat center center/cover;
+}
+
+.main_visual .arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+
+    max-width: 160rem;
+    width: 100%;
+
+    transform: translate(-50%, -50%);
+
+    transition: 0.4s;
+}
+
+.main_visual:hover .arrows {
+    max-width: 141rem;
+}
+
+.main_visual .arrows button {
+    position: absolute;
+    top: 0;
+    width: 8rem;
+    height: 8rem;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+
+    transform: translate(0, -50%);
+}
+
+.main_visual .arrows .prev {
+    left: 0;
+}
+
+.main_visual .arrows .next {
+    right: 0;
+}
+
+.main_visual .slg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 40rem;
+    width: 100%;
+
+    text-align: center;
+
+}
+
+.main_visual .slg p {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    color: var(--white-color);
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 2.4rem;
+
+    text-align: center;
+}
+
+.main_visual .scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 2;
+
+    transform: translate(-50%, 0);
+}
+
+.main_visual .lnk_wrap {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 2;
+
+    transform: translate(-50%, 0);
+
+    max-width: 141rem;
+    width: 100%;
+}
+
+
+
+
+.main_models {
+
+    margin: 0 auto;
+
+}
+
+.main_models .title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1;
+
+}
+
+.main_models .title::before {
+    content: "";
+    position: absolute;
+
+    /* 슬라이드 귀퉁이에 만들거다 */
+    top: 0;
+    left: 0;
+
+
+
+    transform: translate(-45%, -40%);
+
+    z-index: -1;
+
+    border: 3.5rem solid var(--secondary-color);
+
+    border-radius: 50% 50% 0 50%;
+}
+
+
+.main_models .tab_models {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.main_models .tab_models button {
+    position: relative;
+    height: 40px;
+    padding: 0 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.main_models .tab_models button:hover {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.main_models .tab_models button::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: 0.5s;
+}
+
+.main_models .tab_models button.on::after {
+    width: 100%;
+}
+
+.main_models .tab_models_content .con {
+    display: flex;
+    gap: 30px;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+
+.main_models .tab_models_content .con.on {
+    visibility: visible;
+    height: auto;
+}
+
+
+
+.main_models .tab_models_content .con>* {
+    flex: 1;
+}
+
+.main_models .tab_models_content .con img {
+    background: var(--white-color);
+
+    cursor: pointer;
+}
+
+.main_models .tab_models_content .con p {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.main_brand {
+    background: var(--backgroud-color);
+}
+
+.main_brand .inner {
+
+    justify-content: space-between;
+
+    margin: 0 auto;
+    max-width: 141rem;
+
+}
+
+.main_brand .inner>* {
+    flex: 1;
+    min-width: 0;
+}
+
+.main_brand .right01 {
+    position: relative;
+    display: flex;
+    gap: 3rem;
+
+}
+
+.main_brand .right01 .title {
+
+    flex: 1;
+    z-index: 1;
+}
+
+.main_brand .right01 p {
+    margin-bottom: 40px;
+}
+
+.main_brand .right01 a.default_btn:hover {
+    background: var(--secondary-color);
+    color: var(--white-color);
+}
+
+
+.main_brand .right01 figure {
+    flex: 1;
+    display: block;
+    position: relative;
+
+}
+
+.main_brand .right01 figure img {
+
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.main_brand .left01 {
+    position: relative;
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+
+}
+
+.main_brand .left01 .title {
+
+    flex: 1;
+    z-index: 1;
+}
+
+.main_brand .left01 p {
+    margin-bottom: 40px;
+}
+
+.main_brand .left01 a.default_btn:hover {
+    background: var(--secondary-color);
+    color: var(--white-color);
+}
+
+
+.main_brand .left01 figure {
+    flex: 1;
+    display: block;
+    position: relative;
+
+}
+
+.main_brand .left01 figure img {
+
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+
+#footer {
+    padding: 64px 0 64px 0;
+    background: #362f2c;
+}
+
+#footer a {
+    color: var(--white-color);
+}
+
+#footer .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footer .customer {
+    display: flex;
+    gap: 24px;
+}
+
+
+#footer p {
+    display: flex;
+    gap: 32px;
+    color: var(--white-color);
+    font-size: 14px;
+    line-height: 24px;
+}
+
+#footer p span {
+    position: relative;
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+#footer p span~span::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -16px;
+    width: 1px;
+    height: 0.5em;
+    background: var(--line-color);
+
+    transform: translate(0, -50%);
+}
+
+#footer address {
+    color: #fff;
+    margin-top: 16px;
+    font-size: 12px;
+}
+
+
+.to_top {
+    position: fixed;
+    bottom: 80px;
+    right: 160px;
+    z-index: 999;
+
+    width: 40px;
+    height: 40px;
+
+    background: var(--secondary-color);
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s;
+
+}
+
+.to_top.on {
+    opacity: 1;
+    visibility: visible;
+    right: 160px;
+
+}
