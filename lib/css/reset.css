@@ -8,6 +8,12 @@
     box-sizing: border-box;
 }
 
+*::before,
+*::after {
+    /* ,친거는 그리고 라는 뜻이다. */
+    box-sizing: border-box;
+}
+
 ul {
     list-style: none;
 }
@@ -36,6 +42,9 @@ address {
 body {
     line-height: 1;
     color: #333;
+
+    word-break: keep-all;
+    /* 단어 자체로 잘라서 내려오는 명령어. */
 }
 
 img {
@@ -52,5 +61,4 @@ button {
 
 p {
     line-height: 1.5;
-    word-break: keep-all;
 }
