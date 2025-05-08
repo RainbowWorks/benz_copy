@@ -239,6 +239,8 @@ body {
     /*쪼그라든거 펴준다.*/
 
     text-align: left;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+
 }
 
 .main_visual .slg strong {
@@ -252,6 +254,7 @@ body {
 }
 
 .main_visual .slg p {
+
     margin-top: 4rem;
     margin-bottom: 4rem;
     color: var(--white-color);
@@ -282,7 +285,7 @@ body {
     width: 80px;
     height: 80px;
 
-
+    background-color: transparent;
     border: 2px solid var(--white-color);
     box-sizing: border-box;
 
@@ -307,7 +310,6 @@ body {
     transform: translate(-50%, 0);
 }
 
-/* 여기부터 가로배치 박스 잡아 사용하는 방법 */
 
 .main_models {}
 
@@ -387,20 +389,26 @@ body {
 .main_models .tab_models_content .con.on {
     visibility: visible;
     height: auto;
+
 }
 
 
 
 .main_models .tab_models_content .con>* {
     flex: 1;
+
 }
 
 .main_models .tab_models_content .con img {
+
     margin-top: 3rem;
     background: var(--backgroud-color);
     cursor: pointer;
 
+    height: 100%;
+    width: 100%;
 
+    object-fit: cover;
     transform: scale(1);
     transition: 0.4s;
 }
@@ -607,7 +615,7 @@ body {
 .main_store .page span {
     width: 8px;
     height: 8px;
-    background: var(--primary-color);
+    background: var(--secondary-color);
     border-radius: 8px;
     /*높이의 반만큼 설정하면된다.*/
     opacity: 1;
@@ -618,6 +626,7 @@ body {
 .main_store .page span.swiper-pagination-bullet-active {
     width: 80px;
     /*페이지검사해서swiper-pagination-bullet-active가져왔음*/
+    background: var(--primary-color);
 }
 
 
@@ -673,8 +682,14 @@ body {
 }
 
 
+.main_list {
+    position: relative;
+    background: var(--backgroud-color);
+}
 
-.main_list {}
+.main_list .title {
+    text-align: center;
+}
 
 .main_list .inner {
     display: flex;
@@ -685,7 +700,7 @@ body {
 .main_list .itm {
     position: relative;
     display: block;
-    background: var(--backgroud-color);
+    background: var(--white-color);
     width: calc((100% - 9rem) / 4);
     padding: 32px;
 }
