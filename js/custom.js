@@ -23,6 +23,38 @@ $(function () {
     $('.main_visual .next').on('click', function () {
         main_visual_slide.slideNext();
     });
+
+    const MSS = new Swiper('.main_store_slide', {
+        loop: true,
+        slidesPerView: 3,
+        spaceBetween: 30,
+        centeredSlides: true,
+
+        pagination: {
+            el: '.main_store .page',
+            clickable: true, /*클릭안되면 쓰면된다.*/
+        },/*도트만들때필요함*/
+        navigation: {
+            nextEl: '.main_store .next',
+            prevEl: '.main_store .prev',
+        },
+    });
+
+
+
+});
+
+$(function () {
+    $('.main_models .tab_models button').on('click', function () {
+        let idx = $(this).index(); // 클릭한 것의 번호를 가져와서 저장함
+        console.log(idx);
+
+        $('.main_models .tab_models button').removeClass('on');
+        $(this).addClass('on');
+
+        $('.main_models .tab_models_content .con').removeClass('on');
+        $('.main_models .tab_models_content .con').eq(idx).addClass('on');
+    });
 });
 
 $(function () {

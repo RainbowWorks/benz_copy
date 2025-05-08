@@ -29,10 +29,12 @@ body {
     right: 0;
 
     z-index: 999;
+
 }
 
 #header.on {
     background: var(--white-color);
+    border-bottom: 1px solid #ddd;
 
 }
 
@@ -197,12 +199,10 @@ body {
     width: 100%;
 
     transform: translate(-50%, -50%);
-    transition: 0.5s;
+
 }
 
-.main_visual:hover .arrows {
-    max-width: 141rem;
-}
+.main_visual:hover .arrows {}
 
 .main_visual .arrows button {
     position: absolute;
@@ -261,6 +261,42 @@ body {
     /*line-height: 2.4rem를 적어서 fontsize를 내맘대로 줄 수 있다.*/
 }
 
+
+.main_visual .arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 169.6rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_visual .arrows button {
+    position: absolute;
+    top: 0;
+    transform: translate(0, -50%);
+
+    width: 80px;
+    height: 80px;
+
+
+    border: 2px solid var(--white-color);
+    box-sizing: border-box;
+
+}
+
+.main_visual .arrows button img {
+    width: 32px;
+    height: 32px;
+}
+
+.main_visual .arrows .prev {}
+
+.main_visual .arrows .next {}
+
 .main_visual .scroll {
     position: absolute;
     left: 50%;
@@ -273,6 +309,112 @@ body {
 
 /* 여기부터 가로배치 박스 잡아 사용하는 방법 */
 
+.main_models {}
+
+
+.main_models .title {
+    text-align: center;
+}
+
+.main_models .title::before {
+    content: "";
+    position: absolute;
+
+    /* 슬라이드 귀퉁이에 만들거다 */
+    top: 0;
+    left: 0;
+
+
+
+    transform: translate(-45%, -40%);
+
+    z-index: -1;
+
+    border: 3.5rem solid var(--secondary-color);
+
+    border-radius: 50% 50% 0 50%;
+}
+
+.main_models .tab_models {
+    display: flex;
+    justify-content: center;
+
+}
+
+.main_models .tab_models button {
+    position: relative;
+    height: 40px;
+    padding: 0 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.main_models .tab_models button.on {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.main_models .tab_models button:hover {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+.main_models .tab_models button::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: 0.5s;
+}
+
+
+.main_models .tab_models button.on::after {
+    width: 100%;
+}
+
+.main_models .tab_models_content .con {
+    display: flex;
+    gap: 30px;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+
+.main_models .tab_models_content .con.on {
+    visibility: visible;
+    height: auto;
+}
+
+
+
+.main_models .tab_models_content .con>* {
+    flex: 1;
+}
+
+.main_models .tab_models_content .con img {
+    margin-top: 3rem;
+    background: var(--backgroud-color);
+    cursor: pointer;
+
+
+    transform: scale(1);
+    transition: 0.4s;
+}
+
+.main_models .tab_models_content .con img:hover {
+    transform: scale(1.1);
+}
+
+.main_models .tab_models_content .con p {
+    margin-top: 16px;
+    text-align: center;
+}
+
+
 
 .main_advice {
     position: relative;
@@ -282,6 +424,8 @@ body {
 .main_advice .title {
     text-align: center;
 }
+
+
 
 .main_advice .inner {
     display: flex;
@@ -367,6 +511,242 @@ body {
     height: 1.4rem;
     background: url(../images/arrow-right.svg) no-repeat center center/2rem;
 }
+
+.main_store {
+    position: relative;
+}
+
+.main_store .title {
+    text-align: center;
+}
+
+.main_store .itm strong {
+    display: block;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    margin-top: 1.6rem;
+    font-weight: 500;
+}
+
+
+.main_store .inner .itm p {
+    font-size: 1.6rem;
+    margin-top: 1.6rem;
+    min-height: 4.8rem;
+
+}
+
+.main_store .inner .itm a {
+
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2.4rem;
+    height: 5rem;
+    border: 2px solid var(--body-color);
+
+    color: var(--body-color);
+    font-size: 1.6rem;
+
+    overflow: hidden;
+    /*before background 넣고 튀어나온 색 다 잘라냄*/
+}
+
+
+.main_store .inner .itm .btn_wrap {
+    margin-top: 1.6rem;
+}
+
+
+.main_store .default_btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: -1;
+    /*색을 뒤로 보낸다.*/
+
+    height: 0;
+    background: var(--primary-color);
+
+    transition: 0.4s;
+}
+
+.main_store .default_btn:hover::before {
+    /*::띄우면 안된다!!*/
+    top: auto;
+    bottom: 0;
+    /*이해안된다.  top: auto;탑값을 무력화시킨다는뜻 bottom: 0;마우스작동될때탑으로*/
+    height: 100%;
+}
+
+.main_store .default_btn::after {
+    content: "";
+    margin-left: 8px;
+    /*1픽셀은 rem넣지마라, flex되어있으니 margin쓰면됨 gap도 가능함*/
+    width: 1.4rem;
+    height: 1.4rem;
+    background: url(../images/arrow-right.svg) no-repeat center center/2rem;
+}
+
+
+
+.main_store .page {
+    /*도트 내맘대로 바꾸기*/
+    display: flex;
+    justify-content: center;
+
+    /*도트 사진위로 올리기*/
+    margin-top: 2.4rem;
+
+}
+
+.main_store .page span {
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 8px;
+    /*높이의 반만큼 설정하면된다.*/
+    opacity: 1;
+    /*opacity도트흐린거진하게*/
+    transition: 0.4s;
+}
+
+.main_store .page span.swiper-pagination-bullet-active {
+    width: 80px;
+    /*페이지검사해서swiper-pagination-bullet-active가져왔음*/
+}
+
+
+.main_store .arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 0;
+    z-index: 2;
+
+    max-width: 156rem;
+    width: 100%;
+    /*999를 주면 안된다. 그럼 나중에 헤더를 덮어버린다.*/
+    transform: translate(-50%, -50%);
+    /*좌우로0아래위로-50%*/
+}
+
+.main_store .arrows button {
+    position: absolute;
+    top: 0;
+
+    /*버튼을 동그랗게 만들거다*/
+    width: 4rem;
+    height: 4rem;
+
+    border: 2px solid var(--body-color);
+    border-radius: 50%;
+    background: var(--white-color);
+    /*뒤가 비치면 안되니까*/
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+    /*box-shadow 약간 번지는 효과*/
+}
+
+.main_store .arrows .prev {
+    left: 0;
+    transform: translate(0, -50%);
+}
+
+.main_store .arrows .next {
+    right: 0;
+    transform: translate(0, -50%);
+}
+
+.main_store .arrows button:hover {
+    background: var(--secondary-color);
+
+}
+
+
+.main_store .arrows button.active {
+    background: var(--secondary-color);
+
+}
+
+
+
+.main_list {}
+
+.main_list .inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.main_list .itm {
+    position: relative;
+    display: block;
+    background: var(--backgroud-color);
+    width: calc((100% - 9rem) / 4);
+    padding: 32px;
+}
+
+.main_list .itm::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 1px solid var(--primary-color);
+    border-left: 1px solid var(--primary-color);
+
+    transition: 0.2s;
+
+    visibility: hidden;
+}
+
+.main_list .itm:hover::before {
+    width: 100%;
+    height: 100%;
+
+    visibility: visible;
+}
+
+.main_list .itm::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 1px solid var(--primary-color);
+    border-right: 1px solid var(--primary-color);
+
+    transition: 0.2s;
+
+    visibility: hidden;
+}
+
+.main_list .itm:hover::after {
+    width: 100%;
+    height: 100%;
+
+    visibility: visible;
+}
+
+.main_list .itm strong {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+}
+
+.main_list .itm p {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-top: 1.6rem;
+}
+
 
 #footer {
     padding: 64px 0 64px 0;
