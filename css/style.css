@@ -473,7 +473,7 @@ body {
     align-items: center;
     padding: 0 2.4rem;
     height: 5rem;
-    border: 2px solid var(--body-color);
+    border: 1.6px solid var(--body-color);
 
     color: var(--body-color);
     font-size: 1.6rem;
@@ -552,7 +552,7 @@ body {
     align-items: center;
     padding: 0 2.4rem;
     height: 5rem;
-    border: 2px solid var(--body-color);
+    border: 1.6px solid var(--body-color);
 
     color: var(--body-color);
     font-size: 1.6rem;
@@ -652,11 +652,11 @@ body {
     width: 4rem;
     height: 4rem;
 
-    border: 2px solid var(--body-color);
+    border: 1.6px solid var(--body-color);
     border-radius: 50%;
     background: var(--white-color);
     /*뒤가 비치면 안되니까*/
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 1.6px rgba(0, 0, 0, 0.25);
     /*box-shadow 약간 번지는 효과*/
 }
 
@@ -671,13 +671,13 @@ body {
 }
 
 .main_store .arrows button:hover {
-    background: var(--secondary-color);
+    background: var(--backgroud-color);
 
 }
 
 
 .main_store .arrows button.active {
-    background: var(--secondary-color);
+    background: var(--backgroud-color);
 
 }
 
@@ -749,19 +749,33 @@ body {
     visibility: visible;
 }
 
+.main_list .itm .left {}
+
 .main_list .itm strong {
     display: block;
     text-align: center;
     font-weight: 600;
 }
 
+.main_list .itm strong::after {
+    content: "";
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-left: 1.6rem;
+    border-top: 2px solid var(--body-color);
+    border-right: 2px solid var(--body-color);
+    transform: rotate(45deg);
+}
+
+
 .main_list .itm p {
     text-align: center;
     font-size: 1.5rem;
     line-height: 1.6;
     margin-top: 1.6rem;
-}
 
+}
 
 #footer {
     padding: 64px 0 64px 0;
