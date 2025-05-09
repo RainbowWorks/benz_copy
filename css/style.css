@@ -79,6 +79,11 @@ body {
     white-space: nowrap;
 }
 
+
+#header .gnb {
+    font-size: 2rem;
+}
+
 #header .gnb>ul>li>a {
     display: block;
     line-height: 12rem;
@@ -87,6 +92,7 @@ body {
 }
 
 #header.on .gnb>ul>li>a {
+
     line-height: 8rem;
     color: var(--body-color);
 }
@@ -97,6 +103,8 @@ body {
 
 #header .gnb>ul>li ul {
     position: absolute;
+
+    font-size: 1.6rem;
 
     top: auto;
     /*제자리*/
